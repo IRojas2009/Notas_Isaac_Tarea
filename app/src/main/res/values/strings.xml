@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Notas_Isaac</string>
+    <string name="app_de_notas">App de Notas</string>
+    <string name="notas_registradas">Notas Registradas</string>
+    <string name="add_note">Agregar nota</string>
 </resources>
