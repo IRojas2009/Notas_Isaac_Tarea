@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import androidx.activity.contextaware.ContextAwareHelper
 
 class NotasDatabaseHelper (context: Context) : SQLiteOpenHelper(
     context, DATABASE_NAME, null, DATABASE_VERSION
@@ -15,9 +14,8 @@ class NotasDatabaseHelper (context: Context) : SQLiteOpenHelper(
         db?.execSQL(createTableQuery)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVoid: Int) {
-  val dropTableQuery =
-      "DROP TABLE IF EXISTS $TABLE_NAME"
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        val dropTableQuery = "DROP TABLE IF EXISTS $TABLE_NAME"
         db?.execSQL(dropTableQuery)
         onCreate(db)
     }
