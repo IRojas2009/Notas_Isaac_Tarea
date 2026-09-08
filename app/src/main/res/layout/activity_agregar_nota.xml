@@ -56,8 +56,9 @@
         android:layout_marginTop="10dp"
         android:padding="10dp">
 
+
         <EditText
-            android:id="@+id/etDescripción"
+            android:id="@+id/etDescripcion"
             android:hint="@string/etDescripcion"
             android:textSize="20sp"
             android:layout_width="match_parent"
