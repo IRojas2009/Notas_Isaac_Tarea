@@ -7,4 +7,7 @@
     <string name="etTitulo">Título de la nota</string>
     <string name="etDescripcion">Descripción de la nota</string>
     <string name="guardar">Guardar</string>
+    <string name="txtNotas">Notas</string>
+    <string name="item_titulo">Título</string>
+    <string name="item_descripcion">Descripción</string>
 </resources>
