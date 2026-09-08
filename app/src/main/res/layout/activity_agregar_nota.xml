@@ -5,29 +5,30 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="15dp"
     tools:context=".AgregarNotaActivity">
-    
+
     <TextView
-        android:text="@string/txtAgregarNota"
         android:id="@+id/txtAgregarNota"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
+        android:text="@string/txtAgregarNota"
         android:textColor="@color/morado"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"/>
 
     <ImageView
         android:id="@+id/ivGuardarNota"
-        android:layout_alignTop="@id/txtAgregarNota"
-        android:src="@drawable/ic_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@id/txtAgregarNota"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"/>
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/ic_check"
+        android:contentDescription="@string/guardar" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TILTitulo"
@@ -37,16 +38,31 @@
         android:layout_marginTop="15dp"
         android:padding="10dp">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/etTitulo"
             android:maxLines="1"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TILDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TILTitulo"
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/etDescripción"
+            android:hint="@string/etDescripcion"
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
 
 </RelativeLayout>

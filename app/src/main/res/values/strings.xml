@@ -5,4 +5,6 @@
     <string name="add_note">Agregar nota</string>
     <string name="txtAgregarNota">Agregar Nota</string>
     <string name="etTitulo">Título de la nota</string>
+    <string name="etDescripcion">Descripción de la nota</string>
+    <string name="guardar">Guardar</string>
 </resources>
