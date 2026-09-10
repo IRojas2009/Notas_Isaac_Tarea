@@ -6,25 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    tools:context=".AgregarNotaActivity">
+    tools:context=".ActualizarNotaActivity">
 
     <TextView
-        android:id="@+id/txtAgregarNota"
+        android:id="@+id/txtActualizarNota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
-        android:text="@string/txtAgregarNota"
+        android:text="@string/txtActualizarNota"
         android:textColor="@color/morado"
         android:textSize="25sp"
         android:textStyle="bold"
         android:padding="10dp"/>
 
     <ImageView
-        android:id="@+id/ivGuardarNota"
+        android:id="@+id/ivActualizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/txtAgregarNota"
+        android:layout_alignTop="@id/txtActualizarNota"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="5dp"
         android:src="@drawable/ic_check"
@@ -34,7 +34,7 @@
         android:id="@+id/TILTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtAgregarNota"
+        android:layout_below="@id/txtActualizarNota"
         android:layout_marginTop="15dp"
         android:padding="10dp">
 
