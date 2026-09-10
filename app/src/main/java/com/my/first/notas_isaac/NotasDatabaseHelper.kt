@@ -1,15 +1,23 @@
 package com.my.first.notas_isaac
 
-import android.content.ClipDescription
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import java.net.IDN
+import com.my.first.notas_isaac.Nota
 
 class NotasDatabaseHelper (context: Context) : SQLiteOpenHelper(
     context, DATABASE_NAME, null, DATABASE_VERSION
 ){
+    companion object {
+        const val DATABASE_NAME = "notas.db"
+        const val DATABASE_VERSION = 1
+        const val TABLE_NAME = "notas"
+        const val COLUMN_ID = "id"
+        const val COLUMN_TITLE = "titulo"
+        const val COLUMN_DESCRIPTION = "descripcion"
+    }
+
     override fun onCreate(db: SQLiteDatabase?) {
         val createTableQuery =
             "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_TITLE TEXT, $COLUMN_DESCRIPTION TEXT)"
@@ -22,26 +30,15 @@ class NotasDatabaseHelper (context: Context) : SQLiteOpenHelper(
         onCreate(db)
     }
 
-    companion object{
-    private const val DATABASE_NAME = "notas.db"
-    private const val DATABASE_VERSION = 1
-    private const val TABLE_NAME = "notas"
-    private const val COLUMN_ID = "id"
-    private const val COLUMN_TITLE = "titulo"
-    private const val COLUMN_DESCRIPTION = "descripcion"
-}
-
-
     fun insertNota(nota: Nota) {
-    val db = writableDatabase
-    val values = ContentValues().apply {
-        put(COLUMN_TITLE, nota.titulo)
-        put(COLUMN_DESCRIPTION, nota.descripcion)
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_TITLE, nota.titulo)
+            put(COLUMN_DESCRIPTION, nota.descripcion)
+        }
+        db.insert(TABLE_NAME, null, values)
+        db.close()
     }
-
-    db.insert(TABLE_NAME, null, values)
-    db.close()
-}
 
     fun getAllNotas(): List<Nota> {
         val listaNotas = mutableListOf<Nota>()
@@ -96,5 +93,4 @@ class NotasDatabaseHelper (context: Context) : SQLiteOpenHelper(
         db.delete(TABLE_NAME, whereClause, whereArgs)
         db.close()
     }
-
 }
