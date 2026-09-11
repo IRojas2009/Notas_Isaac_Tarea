@@ -28,10 +28,17 @@
                 android:layout_height="wrap_content"/>
 
             <ImageView
+                android:src="@drawable/ic_eliminar"
+                android:id="@+id/ivEliminar"
+                android:layout_alignParentEnd="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+
+            <ImageView
                 android:id="@+id/ivActualizar"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_editar"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="40dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"/>
 

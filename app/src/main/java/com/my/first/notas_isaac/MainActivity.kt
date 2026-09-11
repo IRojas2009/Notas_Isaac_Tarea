@@ -2,6 +2,7 @@ package com.my.first.notas_isaac
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,7 +25,20 @@ class MainActivity : AppCompatActivity() {
 
         db = NotasDatabaseHelper(this)
 
-        notasAdaptador = NotasAdaptador(db.getAllNotas())
+        notasAdaptador = NotasAdaptador(
+            onUpdateClick = { nota ->
+                val intent = Intent(this, ActualizarNotaActivity::class.java).apply {
+                    putExtra("id_nota", nota.id)
+                }
+                startActivity(intent)
+            },
+            onDeleteClick = { nota ->
+                db.deleteNota(nota.id)
+                notasAdaptador.submitList(db.getAllNotas())
+                Toast.makeText(this, "Nota eliminada", Toast.LENGTH_SHORT).show()
+            }
+        )
+        notasAdaptador.submitList(db.getAllNotas())
         binding.notasRv.layoutManager = LinearLayoutManager(this)
         binding.notasRv.adapter = notasAdaptador
         
@@ -41,6 +55,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        notasAdaptador.refreshData(db.getAllNotas())
+        notasAdaptador.submitList(db.getAllNotas())
     }
 }
